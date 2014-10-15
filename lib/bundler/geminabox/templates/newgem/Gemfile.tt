@@ -1,5 +1,4 @@
-source 'https://rubygems.org'
-source '<%=config[:geminabox]%>' # latter gets query earlier
+source '<%=config[:geminabox]%>'
 
 # Specify your gem's dependencies in <%=config[:name]%>.gemspec
 gemspec

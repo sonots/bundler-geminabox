@@ -41,8 +41,7 @@ Note that `rake release` is disabled not to release to rubygems.org mistakenly.
 Write your application's Gemfile as:
 
 ```ruby
-source 'https://rubygems.org'
-source 'https://your.rubygems.org' # latter gets query earlier
+source 'https://your.rubygems.org'
 
 gem 'your_awesome_geminabox_gem'
 ```
