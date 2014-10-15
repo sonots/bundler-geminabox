@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+source '<%=config[:rubygems]%>' # latter gets query earlier
+
+# Specify your gem's dependencies in <%=config[:name]%>.gemspec
+gemspec
