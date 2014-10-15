@@ -1,4 +1,4 @@
-require "bundler/geminabox/gem_tasks"
+require "<%=config[:gem_tasks]%>"
 
 <% if config[:test] == 'minitest' -%>
 require "rake/testtask"

@@ -14,6 +14,7 @@ module Bundler
         underscored_name = name.tr('-', '_')
         opts = {
           :geminabox        => ENV['GEMINABOX'] || 'https://your.rubygems.org',
+          :gem_tasks        => ENV['CUSTOM_GEM_TASKS'] || 'bundler/geminabox/gem_tasks',
           :name             => name,
           :underscored_name => underscored_name,
           :test             => options[:test],
