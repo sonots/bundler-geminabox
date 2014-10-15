@@ -85,3 +85,9 @@ $ GEMINABOX=https://your.rubygems.org bundle-geminabox gem foo
 ```
 
 Note that `Gemfile` and `Rakefile` are updated.
+
+## FOOTNOTE
+
+* This gem should not be limited with the use of geminabox but for any internal rubygems. I named as bundler-geminabox just because I am using it.
+* It would be nice to create a wrapper gem specific to your environment to omit setting GEMINABOX environment variable. I am actually doing so.
+

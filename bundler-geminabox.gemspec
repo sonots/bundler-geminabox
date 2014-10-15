@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Bundler::Geminabox::VERSION
   spec.authors       = ["Naotoshi Seo"]
   spec.email         = ["sonots@gmail.com"]
-  spec.summary       = %q{Provides rake geminabox_release to release gems to internal rubygems}
-  spec.description   = %q{Provides rake geminabox_release to release gems to internal rubygems, and disable rake release}
+  spec.summary       = %q{Release gems to internal rubygems such as geminabox}
+  spec.description   = %q{Release gems to internal rubygems such as geminabox, and disable `rake release`}
   spec.homepage      = "https://github.com/sonots/bundler-geminabox"
   spec.license       = "MIT"
 

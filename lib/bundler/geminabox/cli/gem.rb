@@ -13,7 +13,7 @@ module Bundler
         target = File.join(Dir.pwd, name)
         underscored_name = name.tr('-', '_')
         opts = {
-          :rubygems         => ENV['GEMINABOX'] || 'https://your.rubygems.org',
+          :geminabox        => ENV['GEMINABOX'] || 'https://your.rubygems.org',
           :name             => name,
           :underscored_name => underscored_name,
           :test             => options[:test],

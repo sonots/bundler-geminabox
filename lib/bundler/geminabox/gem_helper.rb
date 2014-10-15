@@ -6,8 +6,6 @@ module Bundler
     class GemHelper
       extend Forwardable
       include Rake::DSL if defined? Rake::DSL
-        
-      GEMINABOX = ENV['GEMINABOX'] || 'https://your.rubygems.org'
 
       class << self
         def install_tasks(opts = {})
@@ -31,7 +29,7 @@ module Bundler
           abort 'gem release to rubygems.org is prohibited.'
         end
 
-        desc "Create tag #{version_tag} and build and push #{name}-#{version}.gem to #{GEMINABOX}"
+        desc "Create tag #{version_tag} and build and push #{name}-#{version}.gem to #{geminabox}"
         task 'geminabox_release' => 'build' do
           geminabox_release_gem(built_gem_path)
         end
@@ -47,8 +45,12 @@ module Bundler
       end
 
       def geminabox_rubygem_push(path)
-        sh("gem push '#{path}' --host #{GEMINABOX}")
-        Bundler.ui.confirm "Pushed #{name} #{version} to #{GEMINABOX}."
+        sh("gem push '#{path}' --host #{geminabox}")
+        Bundler.ui.confirm "Pushed #{name} #{version} to #{geminabox}."
+      end
+
+      def geminabox
+        ENV['GEMINABOX'] || 'https://your.rubygems.org'
       end
     end
   end
