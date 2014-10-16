@@ -85,8 +85,34 @@ $ GEMINABOX=https://your.rubygems.org bundle-geminabox gem foo
 
 Note that `Gemfile` and `Rakefile` are updated.
 
-## FOOTNOTE
+## FAQ
 
-* This gem should not be limited with the use of geminabox but for any internal rubygems. I named as bundler-geminabox just because I am using it.
-* It would be nice to create a wrapper gem specific to your environment to omit setting GEMINABOX environment variable. I am actually doing so.
+#### Does this gem work with only geminabox?
 
+No. `bundler-geminabox` works with any internal rubygems compatible servers. 
+The name is just because I am using geminabox. 
+
+#### I hate to type GEMINABOX everytime. Any good ways?
+
+There are two ways.
+
+1 . Just write following to your .bashrc:
+
+```
+export GEMINABOX=https://your.rubygems.org
+```
+
+2 . Create your own private wrapper specific to your enviroment
+
+Here is a skelton https://github.com/sonots/bundler-foo.
+
+The point is to prepare your own lib/bundler/foo/config.rb as:
+
+```
+require 'bundler/geminabox/config'
+Bundler::Geminabox::Config.geminabox = 'https://rubygems.foo.jp'
+Bundler::Geminabox::Config.gem_tasks = 'bundler/foo/gem_tasks'
+Bundler::Geminabox::Config.release_task = 'foo_release'
+```
+
+As this shows, you can also customize `rake geminabox_release` command to your favorite `rake foo_release` command in this way. 
