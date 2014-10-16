@@ -1,5 +1,6 @@
 require 'bundler/gem_helper'
 require 'forwardable'
+require 'bundler/geminabox/config'
 
 module Bundler
   module Geminabox
@@ -29,8 +30,8 @@ module Bundler
           abort 'gem release to rubygems.org is prohibited.'
         end
 
-        desc "Create tag #{version_tag} and build and push #{name}-#{version}.gem to #{geminabox}"
-        task 'geminabox_release' => 'build' do
+        desc "Create tag #{version_tag} and build and push #{name}-#{version}.gem to #{Config.geminabox}"
+        task Config.release_task => 'build' do
           geminabox_release_gem(built_gem_path)
         end
       end
@@ -45,12 +46,8 @@ module Bundler
       end
 
       def geminabox_rubygem_push(path)
-        sh("gem push '#{path}' --host #{geminabox}")
-        Bundler.ui.confirm "Pushed #{name} #{version} to #{geminabox}."
-      end
-
-      def geminabox
-        ENV['GEMINABOX'] || 'https://your.rubygems.org'
+        sh("gem push '#{path}' --host #{Config.geminabox}")
+        Bundler.ui.confirm "Pushed #{name} #{version} to #{Config.geminabox}."
       end
     end
   end

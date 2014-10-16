@@ -1,3 +1,5 @@
+require 'bundler/geminabox/config'
+
 module Bundler
   module Geminabox
     class CLI::Gem
@@ -13,8 +15,8 @@ module Bundler
         target = File.join(Dir.pwd, name)
         underscored_name = name.tr('-', '_')
         opts = {
-          :geminabox        => ENV['GEMINABOX'] || 'https://your.rubygems.org',
-          :gem_tasks        => ENV['CUSTOM_GEM_TASKS'] || 'bundler/geminabox/gem_tasks',
+          :geminabox        => Config.geminabox,
+          :gem_tasks        => Config.gem_tasks,
           :name             => name,
           :underscored_name => underscored_name,
           :test             => options[:test],
