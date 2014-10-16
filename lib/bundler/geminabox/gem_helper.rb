@@ -25,7 +25,7 @@ module Bundler
 
       def install
         Rake::Task[:release].clear
-        desc "[WARN] Release to rubygems.org is prohibited, use rake geminabox_release."
+        desc "[WARN] Release to rubygems.org is prohibited, use rake #{Config.release_task}."
         task 'release' do
           abort 'gem release to rubygems.org is prohibited.'
         end
